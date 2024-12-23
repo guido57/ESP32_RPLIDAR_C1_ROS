@@ -8,5 +8,9 @@
 * I suppose it could work with SLAMTEC S series also, as the protocols for C and S series are the same. See here: https://bucket-download.slamtec.com/c5971f2703a8d014f3925694d798ea490a370efa/LR001_SLAMTEC_rplidar_S&C%20series_protocol_v2.8_en.pdf
 * I used an ESP32 D1 Mini but I'm pretty sure any ESP32 will suffice.
 
- 
+# SCHEMATIC
+
+The Power Supply must be around 5.2Vcc
+
+![](docs/schematic.png)
 
