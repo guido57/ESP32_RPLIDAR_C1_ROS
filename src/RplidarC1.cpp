@@ -39,13 +39,12 @@ int RplidarC1::uartRx() {
     frameComplete = false;
     
     while (millis() < timeout) {
-        if (frameComplete) {
-            byte = Serial2.read();
-            continue;
-        }
         if (!pointAlign) {
-            if(Serial2.available() < 10)
-                continue;
+            //while (Serial2.available() > 10)
+            //     Serial2.read();
+            // if(Serial2.available() < 5 ){
+            //     return 0; //continue;
+            // }
             byte = Serial2.read();
             if ((byte & 0x11) != 0x10)
                 continue;
@@ -56,7 +55,7 @@ int RplidarC1::uartRx() {
                 byte = Serial2.read();   // read 3rd 4th and 5th byte of this point
             pointAlign = true;
             dataIndex = 0;
-            //printf("%lu point alignment\r\n",millis());
+            printf("%lu point alignment\r\n",millis());
             continue;
         }
         if (!frameActive) {
